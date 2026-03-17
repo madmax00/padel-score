@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:tizen="http://tizen.org/ns/widgets"
+        id="http://padelscore.com/PadelScoreWatch"
+        version="1.0.0">
+    <name>Padel Score</name>
+    <icon src="icon.png"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.shape.circle"/>
+    <tizen:application id="PadelScore.Watch" package="PadelScore" required_version="2.3.1"/>
+    <tizen:privilege name="http://developer.samsung.com/privilege/accessory"/>
+    <tizen:privilege name="http://tizen.org/privilege/bluetooth.gap"/>
+    <tizen:profile name="wearable"/>
+    <tizen:setting screen-orientation="portrait" context-menu="disable" encryption="disable"/>
+</widget>

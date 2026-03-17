@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <application name="PadelScore">
+        <serviceProfile
+            role="provider"
+            serviceId="/padelscore/main"
+            name="PadelScore"
+            id="0"
+            version="1.0"
+            serviceLimit="ANY">
+            <supportedTransports>
+                <transport type="TRANSPORT_BT" />
+            </supportedTransports>
+            <serviceChannel
+                dataRate="low"
+                priority="low"
+                reliability="enable"
+                channelId="104"
+                id="0" />
+        </serviceProfile>
+    </application>
+</resources>
