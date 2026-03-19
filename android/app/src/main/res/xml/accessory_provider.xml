@@ -4,6 +4,7 @@
         <serviceProfile
             role="provider"
             serviceId="/padelscore/main"
+            serviceImpl="com.padelscore.SAPService"
             name="PadelScore"
             id="0"
             version="1.0"

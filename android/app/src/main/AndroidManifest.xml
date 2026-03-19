@@ -3,6 +3,10 @@
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="com.samsung.accessory.permission.ACCESSORY_FRAMEWORK" />
+    <uses-permission android:name="com.samsung.wmanager.APP" />
+    <uses-permission android:name="com.samsung.WATCH_APP_TYPE.Companion" />
 
     <application
         android:allowBackup="true"
@@ -21,13 +25,28 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".SAPService" android:exported="true">
+        <service
+            android:name="com.samsung.android.sdk.accessory.SAService"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.samsung.android.sdk.accessory.RegisterUponInstallReceiver"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.samsung.accessory.api.action.ACCESSORY_AGENT" />
+                <action android:name="com.samsung.accessory.action.REGISTER_AGENT" />
             </intent-filter>
-            <meta-data
-                android:name="AccessoryAgent"
-                android:resource="@xml/accessory_provider" />
-        </service>
+        </receiver>
+
+        <receiver
+            android:name="com.samsung.android.sdk.accessory.ServiceConnectionIndicationBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.samsung.accessory.action.SERVICE_CONNECTION_REQUESTED" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="AccessoryServicesLocation"
+            android:value="/res/xml/accessory_provider.xml" />
     </application>
 </manifest>

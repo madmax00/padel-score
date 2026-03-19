@@ -1,10 +1,24 @@
 package com.padelscore
 
+import android.content.Context
 import android.util.Log
+import com.samsung.android.sdk.SsdkUnsupportedException
 import com.samsung.android.sdk.accessory.*
 import org.json.JSONObject
 
-class SAPService : SAAgentV2("PadelScoreProvider", PadelScoreSocket::class.java) {
+class SAPService(context: Context) : SAAgentV2(TAG, context, PadelScoreSocket::class.java) {
+
+    init {
+        val accessory = SA()
+        try {
+            accessory.initialize(context)
+        } catch (e: SsdkUnsupportedException) {
+            Log.e(TAG, "SDK not supported", e)
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to initialize SDK", e)
+            releaseAgent()
+        }
+    }
 
     companion object {
         const val TAG = "SAPService"

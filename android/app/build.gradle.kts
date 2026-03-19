@@ -44,6 +44,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     debugImplementation(libs.androidx.ui.tooling)
-    // SAP SDK: place samsung-accessory-v2.jar in app/libs/
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    // SAP SDK
+    implementation(fileTree(mapOf("dir" to "libs/TizenConsumerSAAgentV2-master/app/libs", "include" to listOf("*.jar"))))
 }
